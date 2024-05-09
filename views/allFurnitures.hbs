@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Furnitures</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    {{>navbar}}
+
+    <section class="h-screen py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">All Furnitures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {{#each furnitures}}
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">{{this.furnitureName}}</h3>
+                        <img src="{{this.image}}" alt="{{this.furnitureName}}" class="w-full h-48 object-cover mb-4">
+                        <p class="text-lg">Price: &#x20b9;{{this.price}}</p>
+                        <a href="/furnitures/{{this._id}}/edit" class="text-blue-500 font-bold hover:underline">Edit</a>
+                        <a href="/furnitures/{{this._id}}" class="text-blue-500 font-bold hover:underline ml-4">View</a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>
+</html>

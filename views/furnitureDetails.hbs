@@ -5,21 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ furniture.furnitureName }} Details</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card {
+            width: 48%; /* Adjust as needed */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     {{>navbar}}
 
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8">{{ furniture.furnitureName }} Details</h2>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">{{ furniture.furnitureName }}</h3>
-                    <img src="{{ furniture.image }}" alt="{{ furniture.furnitureName }}" class="w-full mb-4">
-                    <p class="text-lg">Price: &#x20b9;{{ furniture.price }}</p>
-                    <a href="/furnitures/{{ furniture._id }}/edit" class="text-blue-500 font-bold hover:underline">Edit</a>
+            <h2 class="text-3xl font-bold mb-8">Furniture Details</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="{{ furniture.image }}" alt="{{ furniture.furnitureName }}">
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold mb-2">{{ furniture.furnitureName }}</h3>
+                        <p class="text-lg">Price: &#x20b9;{{ furniture.price }}</p>
+                        <a href="/furnitures/{{ furniture._id }}/edit" class="text-blue-500 font-bold hover:underline">Edit</a>
+                    </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
